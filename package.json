@@ -11,13 +11,17 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
+  "homepage": "./",
   "main": "public/electron.js",
   "scripts": {
     "start": "rescripts start",
     "build": "rescripts build",
     "test": "rescripts test",
     "eject": "react-scripts eject",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron . \""
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron . \"",
+    "postinstall": "electron-builder",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "build -mw"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +44,7 @@
     "concurrently": "^5.2.0",
     "electron": "^9.0.0",
     "electron-builder": "^22.6.1",
+    "typescript": "^3.9.3",
     "wait-on": "^5.0.0"
   }
 }
